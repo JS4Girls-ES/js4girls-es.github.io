@@ -1,0 +1,285 @@
+/*  Syntax Quick Reference for Jeet
+	--------------------------
+	column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
+	span(ratio = 1, offset = 0)
+	shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
+	unshift()
+	edit()
+	center(max_width = 1410px, pad = 0)
+	stack(pad = 0, align = false)
+	unstack()
+	align(direction = both)
+	cf()
+
+	For more info see:
+		Kouto Swiss Doc: http://kouto-swiss.io/
+		Jeet Doc: http://jeet.gs
+
+	And of course, look in node_modules for axis-css and jeet
+*/
+@import "kouto-swiss"
+@import "jeet"
+
+@font-face
+	font-family Mairy
+	font-style normal
+	src url("../fonts/mairy_book-webfont.ttf")
+
+@font-face
+	font-family Mairy Hairline
+	font-style normal
+	src url("../fonts/mairy_hairline-webfont.ttf")
+
+@font-face
+	font-family Mairy Light
+	font-style normal
+	src url("../fonts/mairy_light-webfont.ttf")
+
+@font-face
+	font-family Geometria Light
+	font-style normal
+	src url("../fonts/Geometria-Light.otf")
+
+normalize()
+
+*
+	box-sizing border-box
+
+body
+	color rgb(255, 255, 255)
+	font-family Geometria Light
+	font-size 18px
+
+header
+	width 100%
+	position fixed
+	height 80px
+	z-index 3
+
+h1, h2, h3, h4
+	font-family Mairy Hairline
+
+.title
+	font-size 4em
+	margin 10px 0
+
+	span
+		font-family Mairy Light
+
+.subtitle
+	width 70%
+	font-size 2em
+	font-family Geometria Light
+
+ul
+	list-style none
+	padding 0
+	margin 0
+
+li
+	margin 0
+	padding 0
+
+nav
+	padding 10px 20px
+
+.btn-close
+	font-size 4em
+	line-height 1em
+	position absolute
+	right 40px
+	top 0
+	cursor pointer
+
+.content
+	center(70%)
+
+.logo-brand
+	background-image url("../img/logo-name.png")
+	background-size contain
+	background-repeat no-repeat
+	width 162px
+	height 80px
+	position absolute
+
+#menu
+	position absolute
+	right 20px
+	height 40px
+	width 40px
+	margin 10px
+	cursor pointer
+
+	line
+		stroke #ffddE9
+		stroke-width 5px
+
+.menu
+	background-color rgba(226, 39, 107, .9)
+	height 100%
+	width 100%
+	left 0
+	opacity 1
+	overflow auto
+	padding-top 25vh
+	position fixed
+	text-align center
+	top 0
+	z-index 3
+	display block
+
+	&.is-closed
+		opacity 0
+		visibility hidden
+		transition visibility 0s linear .2s, opacity .2s linear
+
+.menu-item
+	a
+		font-size 2.8em
+		line-height 1.5em
+		color #fff
+		text-decoration none
+
+		&:hover
+			text-decoration underline
+
+section
+	min-height 100vh
+	display flex
+	flex-direction column
+	align-items	center
+	justify-content center
+	background-size cover
+	background-repeat no-repeat
+	background-position top center
+	padding 120px 10px 40px
+	position relative
+
+	&#home
+		background-image url("../img/bg1.png")
+		background-color #df105b
+
+	&#about
+		background-color #36a2a0
+		background-image url("../img/bg-green.jpg")
+
+	&#in-my-city
+		background-image url("../img/bg1.png")
+		background-color #df105b
+
+		a
+			color #fff
+
+		ul
+			padding 10px 30px
+			list-style square
+
+	&.bg-white
+		color #df105b
+
+.event-excerpt
+	background-size cover
+	display inline-block
+	height 150px
+	margin 1%
+	vertical-align top
+	width 22%
+
+	a
+		text-decoration none
+		cursor pointer
+		display block
+		padding 30px 10px 10px 10px
+		height 100%
+		position relative
+		color #363636
+
+		&:hover
+			background-color rgba(223, 16, 91, .8)
+			color #fff
+
+			&:before
+				content ''
+				position absolute
+				top 10px
+				right 10px
+				width 20px
+				height 20px
+				background-image url("../img/icon-link.png")
+				background-size 100%
+
+	strong
+		font-family Mairy
+		font-size 1.2em
+
+	p
+		margin 5px 0
+
+.bg-rj
+	background-image url("../img/city-rj.png")
+
+.bg-sp
+	background-image url("../img/city-sp.png")
+
+.bg-poa
+	background-image url("../img/city-poa.png")
+
+.bg-nfb
+	background-image url("../img/city-nfb.png")
+
+.bg-flp
+	background-image url("../img/city-flp.png")
+
+.bg-ntl
+	background-image url("../img/city-ntl.png")
+
+.bg-san
+	background-image url("../img/city-san.png")
+
+.bg-pg
+	background-image url("../img/city-pg.png")
+
+@media screen and (max-width: 1024px)
+	.content
+		max-width 100%
+		width 80%
+
+	section
+		min-height 100vh
+		height auto
+
+	.title
+		font-size 3em
+
+	.subtitle
+		width 100%
+		font-size 1.5em
+
+	#home
+		padding-top 40px
+
+@media screen and (max-width: 769px)
+	#menu
+		right 0
+
+	.btn-close
+		right 10px
+
+	.content
+		width 90%
+
+	.title
+		font-size 2.5em
+
+	.subtitle
+		width 100%
+		font-size 1.2em
+
+	.event-excerpt
+		width: 48%
+
+@media screen and (max-width: 450px)
+	.list-events .event-excerpt
+		width: 100%
+		display block
+		margin-bottom 10px
